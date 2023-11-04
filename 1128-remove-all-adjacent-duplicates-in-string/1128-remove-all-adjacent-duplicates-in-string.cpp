@@ -1,22 +1,15 @@
 class Solution {
 public:
     string removeDuplicates(string s) {
-        std::stack<char> stack;
-
-    for (char c : s) {
-        if (!stack.empty() && stack.top() == c) {
-            stack.pop();
+    string result;
+    for (char ch : s) {
+        if (!result.empty() && ch == result.back()) {
+            result.pop_back(); 
         } else {
-            stack.push(c);
+            result.push_back(ch);
         }
     }
-
-    std::string result;
-    while (!stack.empty()) {
-        result = stack.top() + result;
-        stack.pop();
-    }
-
     return result;
     }
+    
 };
